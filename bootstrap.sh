@@ -54,10 +54,10 @@ sed -i -e 's/#ServerName www\.example\.com:80/ServerName localhost/' /etc/httpd/
 sed -i -e 's/127\.0\.0\.1/0\.0\.0\.0/' /etc/hosts
 
 ### point /var/www at /vagrant mount
-if ! [ -L /var/www  ]; then
-    rm -rf /var/www
-    ln -fs /vagrant /var/www
-fi
+#if ! [ -L /var/www  ]; then
+#    rm -rf /var/www
+#    ln -fs /vagrant /var/www
+#fi
 
 ### restart apache
 /etc/init.d/httpd start
