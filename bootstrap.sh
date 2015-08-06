@@ -50,6 +50,8 @@ chsh -s /bin/zsh vagrant
 ### Set servername in httpd.conf to localhost
 sed -i -e 's/#ServerName www\.example\.com:80/ServerName localhost/' /etc/httpd/conf/httpd.conf
 
+### Disable apache SendFile (causing crazy caching in VirtualBox shared directories)
+sed -i -e 's/#EnableSendFile off/EnableSendFile off/' /etc/httpd/conf/httpd.conf
 
 ### Fix binding in Hosts
 sed -i -e 's/127\.0\.0\.1/0\.0\.0\.0/' /etc/hosts
