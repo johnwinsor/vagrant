@@ -6,8 +6,8 @@ sudo yum -y install httpd
 sudo yum -y install php php-devel php-intl php-ldap php-mysql php-xsl php-gd php-mbstring php-mcrypt
 sudo yum -y install git
 sudo yum -y install zsh
-#sudo yum -y install mysql-server
-#sudo service mysqld start
+sudo yum -y install mysql-server
+sudo service mysqld start
 
 #sudo yum -y install patch libyaml-devel libffi-devel glibc-headers autoconf gcc-c++ glibc-devel readline-devel zlib-devel openssl-devel bzip2 automake libtool bison
 
@@ -49,19 +49,16 @@ chsh -s /bin/zsh vagrant
 
 ### Set servername in httpd.conf to localhost
 sed -i -e 's/#ServerName www\.example\.com:80/ServerName localhost/' /etc/httpd/conf/httpd.conf
-sed -i -e 's/^DocumentRoot "\/var\/www\/html"/DocumentRoot "\/html"/' /etc/httpd/conf/httpd.conf
-
-
 
 
 ### Fix binding in Hosts
 sed -i -e 's/127\.0\.0\.1/0\.0\.0\.0/' /etc/hosts
 
 ### point /var/www at /vagrant mount
-#if ! [ -L /var/www  ]; then
-#    rm -rf /var/www
-#    ln -fs /vagrant /var/www
-#fi
+if ! [ -L /var/www  ]; then
+    rm -rf /var/www
+    ln -fs /webstuff /var/www
+fi
 
 ### restart apache
 /etc/init.d/httpd start
