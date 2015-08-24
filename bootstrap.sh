@@ -3,23 +3,21 @@
 ### update & install base packages
 sudo yum update
 sudo yum -y install httpd
-sudo yum -y install php php-devel php-intl php-ldap php-mysql php-xsl php-gd php-mbstring php-mcrypt
+#sudo yum -y install php php-devel php-intl php-ldap php-mysql php-xsl php-gd php-mbstring php-mcrypt
+sudo yum -y install gcc-c++ patch readline readline-devel zlib zlib-devel libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison iconv-devel
 sudo yum -y install git
 sudo yum -y install zsh
+sudo yum -y install mysql-devel
 sudo yum -y install mysql-server
 sudo service mysqld start
 
-#sudo yum -y install patch libyaml-devel libffi-devel glibc-headers autoconf gcc-c++ glibc-devel readline-devel zlib-devel openssl-devel bzip2 automake libtool bison
+### ScholarSphere Dependencies
+sudo rpm -Uvh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+sudo rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-6.rpm
+sudo yum -y --enablerepo=remi,remi-test install redis
+sudo yum -y install libmagick-dev libmagickwand-dev clamav clamd clamav-devel ghostscript
 
-### Install RVM and Ruby 2.2.2
-sudo gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 sudo yum -y install curl
-curl -quiet -L get.rvm.io | sudo bash -s stable
-source /etc/profile.d/rvm.sh
-rvm requirements
-rvm install 2.2.2
-rvm use 2.2.2 --default
-rvm rubygems current
 
 ### Install Rails
 gem update
