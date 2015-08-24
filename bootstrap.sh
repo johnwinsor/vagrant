@@ -11,20 +11,20 @@ sudo service mysqld start
 
 #sudo yum -y install patch libyaml-devel libffi-devel glibc-headers autoconf gcc-c++ glibc-devel readline-devel zlib-devel openssl-devel bzip2 automake libtool bison
 
-### Install RVM and Ruby 1.9.3
-#sudo gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-#sudo yum -y install curl
-#curl -quiet -L get.rvm.io | sudo bash -s stable
-#source /etc/profile.d/rvm.sh
-#rvm requirements
-#rvm install 1.9.3
-#rvm use 1.9.3 --default
-#rvm rubygems current
+### Install RVM and Ruby 2.2.2
+sudo gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+sudo yum -y install curl
+curl -quiet -L get.rvm.io | sudo bash -s stable
+source /etc/profile.d/rvm.sh
+rvm requirements
+rvm install 2.2.2
+rvm use 2.2.2 --default
+rvm rubygems current
 
 ### Install Rails
-#gem update
-#gem update --system
-#gem install rails
+gem update
+gem update --system
+gem install rails
 
 ### Install Node
 #curl --silent --location https://rpm.nodesource.com/setup | bash -
@@ -69,5 +69,5 @@ fi
 wget -q --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-linux-x64.rpm" -O jdk-8u45-linux-x64.rpm
 
 rpm -ivh --quiet jdk-8u45-linux-x64.rpm
-
+rm jdk-8u45-linux-x64.rpm
 
