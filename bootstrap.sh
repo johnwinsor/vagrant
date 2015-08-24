@@ -66,13 +66,8 @@ fi
 /etc/init.d/httpd start
 
 ### Install java
-#cd /opt
-#sudo wget --quiet --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u25-b17/jdk-8u25-linux-x64.tar.gz" -O jdk-8u25-linux-x64.tar.gz
-#sudo tar xvf jdk-8u25-linux-x64.tar.gz
-#sudo chown -R root: jdk1.8.0_25
+wget -q --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-linux-x64.rpm" -O jdk-8u45-linux-x64.rpm
 
-#sudo alternatives --install /usr/bin/java java /opt/jdk1.8.0_25/bin/java 1
-#sudo alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_25/bin/javac 1
-#sudo alternatives --install /usr/bin/jar jar /opt/jdk1.8.0_25/bin/jar 1
+rpm -ivh --quiet jdk-8u45-linux-x64.rpm
 
-#sudo rm /opt/jdk-8u25-linux-x64.tar.gz
+
